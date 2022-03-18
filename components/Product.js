@@ -15,9 +15,7 @@ const Product = ({ favorite }) => {
         <div className='ml-2'>49.99</div>
       </div>
       <div
-        className={`relative bg-red-300 w-72 h-72 ${
-          favorite ? 'w-56 h-80' : 'w-14 h-14'
-        }`}
+        className={`relative bg-red-300 w-72 h-72 ${favorite && 'w-56 h-80'}`}
       >
         <Image
           src={DemoImg}

@@ -36,6 +36,6 @@ export const Button = ({
 export const BackButton = ({ children, className }) => (
   <button className={`flex justify-center items-center ${className}`}>
     <Image src={LeftArrow} alt='Left Arrow' />
-    <div className='font-bold ml-4 mr-8'>{children}</div>
+    <div className='ml-4 mr-8'>{children}</div>
   </button>
 );
