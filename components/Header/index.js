@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import MenuButton from './MenuButton';
+import MenuButton from './HamburgerButton';
+import MenuItems from './MenuItems';
+
 import SearchLogo from '../../assets/logos/search.svg';
 import CartLogo from '../../assets/logos/shopping-cart.svg';
 import UserLogo from '../../assets/logos/user.svg';
@@ -17,18 +20,13 @@ const Header = () => {
       />
       <div>
         <ul className='flex flex-row w-[29rem] justify-between font-bold'>
-          <li>
-            <button className='font-bold'>WOMEN</button>
-          </li>
-          <li>
-            <button className='font-bold'>MEN</button>
-          </li>
-          <li>
-            <button className='font-bold'>KIDS</button>
-          </li>
-          <li>
-            <button className='font-bold'>GIFTS</button>
-          </li>
+          {MenuItems.map((item) => (
+            <li key={item.name}>
+              <Link className='font-bold' href={`/collections/${item.handle}`}>
+                {item.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
       <ul className='flex flex-row w-32 justify-between'>

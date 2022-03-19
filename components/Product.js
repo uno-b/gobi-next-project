@@ -26,9 +26,11 @@ const Product = ({ favorite }) => {
         <button className='absolute bottom-0 right-0 w-14 h-14 bg-black-primary flex justify-center items-center'>
           <Image src={CartLogo} alt='Cart Logo' />
         </button>
-        <button className='absolute top-0 right-0 w-14 h-14 flex justify-center items-center'>
-          <Image src={BinLogo} alt='Bin Logo' />
-        </button>
+        {favorite && (
+          <button className='absolute top-0 right-0 w-14 h-14 flex justify-center items-center'>
+            <Image src={BinLogo} alt='Bin Logo' />
+          </button>
+        )}
       </div>
     </div>
   );
