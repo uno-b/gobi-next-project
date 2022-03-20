@@ -23,7 +23,7 @@ const Gift = () => {
           redeeming or buying one now.
         </div>
         <Button className='w-72 mb-2'>ADD GIFT CARD / VOUCHER</Button>
-        <Button className='bg-black-primary text-white w-72' whiteArrow>
+        <Button className='bg-black-1 text-white w-72' whiteArrow>
           BUY GIFT CARD / VOUCHER
         </Button>
       </div>

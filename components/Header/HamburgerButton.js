@@ -3,7 +3,7 @@ import React from 'react';
 const MenuButton = ({ onClick, isMenuOpen }) => {
   return (
     <button onClick={onClick}>
-      <div className='bg-black-primary'>
+      <div className='bg-black-1'>
         <div className='w-14 h-14 flex justify-center items-center'>
           <span
             aria-hidden='true'

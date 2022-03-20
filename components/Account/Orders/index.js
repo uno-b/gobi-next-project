@@ -13,7 +13,7 @@ const Orders = () => {
       </div>
 
       {/* ORDER ITEM */}
-      {[...Array(2)].map((e, i) => (
+      {[...Array(3)].map((e, i) => (
         <div className='mb-8 p-6 bg-gray-light' key={i}>
           <div className='w-full flex justify-between mb-4'>
             <h3 className='font-bold text-lg'>It&apos;s Delivered!</h3>

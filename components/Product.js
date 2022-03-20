@@ -23,7 +23,7 @@ const Product = ({ favorite }) => {
           layout='fill'
           objectFit='cover'
         />
-        <button className='absolute bottom-0 right-0 w-14 h-14 bg-black-primary flex justify-center items-center'>
+        <button className='absolute bottom-0 right-0 w-14 h-14 bg-black-1 flex justify-center items-center'>
           <Image src={CartLogo} alt='Cart Logo' />
         </button>
         {favorite && (

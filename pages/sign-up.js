@@ -15,7 +15,7 @@ const SignUp = () => {
 
   return (
     <div className='flex flex-row justify-between'>
-      <div className='relative w-1/2 h-screen bg-black'>
+      <div className='absolute w-1/2 h-screen'>
         <Image
           src={BGHalf}
           alt='Background'
@@ -24,8 +24,8 @@ const SignUp = () => {
           objectFit='cover'
         />
       </div>
-      <div className='relative w-1/2'>
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[487px]'>
+      <div className='mx-auto'>
+        <div className='w-[487px] absolute top-1/2 -translate-y-1/2 ml-28'>
           <h1 className='text-5xl font-bold tracking-widest'>SIGN UP</h1>
           <div className='mt-6 mb-12'>
             Already have an account?{' '}

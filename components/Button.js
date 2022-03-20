@@ -17,7 +17,7 @@ export const Button = ({
   return (
     <button
       className={`flex justify-center items-center w-44 h-14 ${
-        ghost ? 'bg-transparent border-2 border-black-primary' : 'bg-yellow'
+        ghost ? 'bg-transparent border-2 border-black-1' : 'bg-yellow'
       } ${className}`}
     >
       {leftLogo && <Image src={leftLogo} alt='Left logo' />}
@@ -26,9 +26,7 @@ export const Button = ({
         <Image src={rightLogo} alt='Right logo' />
       ) : !noArrow && whiteArrow ? (
         <Image src={RightArrowWhite} alt='Right arrow' />
-      ) : (
-        <Image src={RightArrow} alt='Right arrow' />
-      )}
+      ) : null}
     </button>
   );
 };

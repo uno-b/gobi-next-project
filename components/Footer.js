@@ -8,7 +8,7 @@ import Twitter from '../assets/logos/twitter.svg';
 
 const Footer = () => {
   return (
-    <div className='mx-auto absolute bottom-8 left-0 right-0 w-[312px] flex flex-col justify-center items-center'>
+    <div className='mx-auto mb-8 w-[312px] flex flex-col justify-center items-center mt-auto z-50'>
       <div className='flex w-full justify-between'>
         <Image src={Line} width={50} height={2} alt='Line' />
         <button>
@@ -22,7 +22,7 @@ const Footer = () => {
         </button>
         <Image src={Line} width={50} height={2} alt='Line' />
       </div>
-      <div className='mt-6 tracking-wide font-bold'>
+      <div className='mt-6 font-bold'>
         YOLO &copy; 2020. ALL RIGHTS RESERVED
       </div>
     </div>

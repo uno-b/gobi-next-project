@@ -30,46 +30,53 @@ const Help = () => {
         <div>Here are the popular FAQ down below</div>
       </div>
 
-      {FAQ.map((item, i) => {
-        return (
-          <div key={i}>
-            <div className='py-6'>
-              <button className='w-full flex' onClick={() => handleClick(i)}>
-                <div>
-                  <Image src={QuestionLogo} alt='Question Logo' />
-                </div>
-                <div className='ml-4'>{item.question}</div>
-                <div className='ml-auto'>
-                  <Image
-                    src={ChevronRightLogo}
-                    alt='Chevron'
-                    width={13}
-                    height={14}
-                    className={
-                      droppedDownArr[i] === true ? `-rotate-90` : 'rotate-90'
-                    }
-                  />
-                </div>
-              </button>
+      <div className='mb-8'>
+        {FAQ.map((item, i) => {
+          return (
+            <div key={i}>
+              <div className='py-6'>
+                <button className='w-full flex' onClick={() => handleClick(i)}>
+                  <div>
+                    <Image src={QuestionLogo} alt='Question Logo' />
+                  </div>
+                  <div className='ml-4'>{item.question}</div>
+                  <div className='ml-auto'>
+                    <Image
+                      src={ChevronRightLogo}
+                      alt='Chevron'
+                      width={13}
+                      height={14}
+                      className={
+                        droppedDownArr[i] === true ? `-rotate-90` : 'rotate-90'
+                      }
+                    />
+                  </div>
+                </button>
 
-              {droppedDownArr[i] === true && (
-                <div className='flex mt-10'>
-                  <div className='bg-gray-light p-4 rounded-md w-11/12'>
-                    {item.answer}
+                {droppedDownArr[i] === true && (
+                  <div className='flex mt-10'>
+                    <div className='bg-gray-light p-4 rounded-md w-11/12'>
+                      {item.answer}
+                    </div>
+                    <div className='relative -translate-x-1 translate-y-5'>
+                      <Image
+                        src={Polygon}
+                        alt='Polygon'
+                        width={14}
+                        height={20}
+                      />
+                    </div>
+                    <div className='relative translate-y-3 ml-3'>
+                      <Image src={AdminPicture} alt='Admin' />
+                    </div>
                   </div>
-                  <div className='relative -translate-x-1 translate-y-5'>
-                    <Image src={Polygon} alt='Polygon' width={14} height={20} />
-                  </div>
-                  <div className='relative translate-y-3 ml-3'>
-                    <Image src={AdminPicture} alt='Admin' />
-                  </div>
-                </div>
-              )}
+                )}
+              </div>
+              {droppedDownArr[i] === false && <hr className='border-gray' />}
             </div>
-            {droppedDownArr[i] === false && <hr className='border-gray' />}
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
