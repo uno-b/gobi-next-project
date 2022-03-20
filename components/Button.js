@@ -22,8 +22,13 @@ export const Button = ({
     >
       {leftLogo && <Image src={leftLogo} alt='Left logo' />}
       <div className='mr-8 font-bold'>{children}</div>
-      {rightLogo ? (
-        <Image src={rightLogo} alt='Right logo' />
+      {!noArrow ? (
+        <Image
+          src={
+            rightLogo ? rightLogo : whiteArrow ? RightArrowWhite : RightArrow
+          }
+          alt='Right logo'
+        />
       ) : !noArrow && whiteArrow ? (
         <Image src={RightArrowWhite} alt='Right arrow' />
       ) : null}

@@ -5,14 +5,15 @@ const ToggleBtn = ({ isOn, setIsOn }) => {
     <div className='flex justify-center cursor-pointer'>
       <div
         className={`flex items-center relative w-11 h-6 transition duration-200 ease-linear rounded-full ${
-          isOn ? 'bg-green' : 'bg-gray-400'
+          isOn ? 'bg-green' : 'border border-gray-3'
         }`}
       >
         <label
           htmlFor='toggle'
           className={`
             absolute
-            ${isOn ? 'right-0' : 'left-0'}
+            left-2
+            ${isOn && 'translate-x-4'}
             w-2.5
             h-5
             transition
@@ -23,7 +24,7 @@ const ToggleBtn = ({ isOn, setIsOn }) => {
             border-2
             rounded
             cursor-pointer
-            ${isOn ? 'border-green mr-2.5' : 'border-gray-400 ml-2.5'}
+            ${isOn ? 'border-green' : 'border-gray-dark'}
           `}
         ></label>
         <input
