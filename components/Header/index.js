@@ -36,14 +36,14 @@ const Header = () => {
           </button>
         </li>
         <li>
-          <button>
+          <Link href='/cart' passHref>
             <Image src={CartLogo} alt='Shopping Cart' width={27} height={24} />
-          </button>
+          </Link>
         </li>
         <li>
-          <button>
+          <Link href='/account' passHref>
             <Image src={UserLogo} alt='User' width={19} height={22} />
-          </button>
+          </Link>
         </li>
       </ul>
     </div>
