@@ -13,12 +13,14 @@ export const Button = ({
   whiteArrow,
   className,
   ghost,
+  onClick,
 }) => {
   return (
     <button
       className={`flex justify-center items-center w-44 h-14 ${
         ghost ? 'bg-transparent border-2 border-black-1' : 'bg-yellow'
       } ${className}`}
+      onClick={onClick}
     >
       {leftLogo && <Image src={leftLogo} alt='Left logo' />}
       <div className='mr-8 font-bold'>{children}</div>

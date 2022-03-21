@@ -12,6 +12,8 @@ const Input = ({
   className,
   startDate,
   setStartDate,
+  value,
+  onChange,
 }) => {
   return (
     <div className={`mb-6 ${className}`}>
@@ -27,7 +29,12 @@ const Input = ({
             className='ml-4 w-full outline-none'
           />
         ) : (
-          <input type='text' className='ml-4 w-full outline-none' />
+          <input
+            type='text'
+            className='ml-4 w-full outline-none'
+            value={value}
+            onChange={onChange}
+          />
         )}
       </div>
       <hr className='mt-2 border-gray' />
@@ -36,7 +43,6 @@ const Input = ({
 };
 
 Input.propTypes = {
-  icon: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['Password', 'Date']),
 };
 
