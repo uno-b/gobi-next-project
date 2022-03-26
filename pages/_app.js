@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { Toaster } from 'react-hot-toast';
 

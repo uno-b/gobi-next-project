@@ -1,19 +1,23 @@
 const MenuItems = [
   {
+    name: 'NEW',
+    handle: 'neuheiten',
+  },
+  {
     name: 'WOMEN',
-    handle: 'women',
+    handle: 'damen',
   },
   {
     name: 'MEN',
-    handle: 'men',
+    handle: 'herren',
   },
   {
-    name: 'KIDS',
-    handle: 'kids',
+    name: 'HOME',
+    handle: 'wohnen',
   },
   {
-    name: 'GIFTS',
-    handle: 'gifts',
+    name: 'SALES',
+    handle: 'sale',
   },
 ];
 

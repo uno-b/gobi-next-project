@@ -20,7 +20,7 @@ const Account = () => {
           <Image src={DemoProPic} alt='Profile Picture' />
           <div className='font-bold ml-6'>
             <div>Hi,</div>
-            <div>Unknown person</div>
+            <div>TODO</div>
           </div>
         </div>
 
