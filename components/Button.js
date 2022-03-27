@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import RightArrow from '../assets/logos/right-arrow.svg';
 import RightArrowWhite from '../assets/logos/right-arrow-white.svg';
@@ -38,9 +39,18 @@ export const Button = ({
   );
 };
 
-export const BackButton = ({ children, className }) => (
-  <button className={`flex justify-center items-center ${className}`}>
-    <Image src={LeftArrow} alt='Left Arrow' />
-    <div className='ml-4 mr-8'>{children}</div>
-  </button>
-);
+export const BackButton = ({ children, className }) => {
+  const router = useRouter();
+
+  return (
+    <button
+      className={`flex justify-center items-center group ${className}`}
+      onClick={() => router.back()}
+    >
+      <Image src={LeftArrow} alt='Left Arrow' />
+      <div className="ml-4 mr-8 inline-block relative before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:w-0 before:right-0 before:h-[2px] before:bg-yellow-1 before:transition-all group-hover:before:w-full">
+        {children}
+      </div>
+    </button>
+  );
+};

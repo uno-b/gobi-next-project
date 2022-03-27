@@ -14,6 +14,7 @@ const Product = ({ data, favorite }) => {
 
   if (data) {
     id = data.node.id;
+    handle = data.node.handle;
     title = data.node.title;
     images = data.node.images;
     priceRange = data.node.priceRange;

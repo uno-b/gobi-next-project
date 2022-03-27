@@ -56,6 +56,7 @@ export const getCollection = gql`
 export const getProductByHandle = gql`
   query getProductByHandle($handle: String!) {
     productByHandle(handle: $handle) {
+      id
       title
       description
       options {

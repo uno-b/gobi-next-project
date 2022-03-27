@@ -28,11 +28,23 @@ const Account = () => {
           {MenuItems.map((item) => (
             <li key={item.id}>
               <button
-                className='flex items-center w-96 h-20'
+                className='flex items-center w-96 h-20 group'
                 onClick={() => setTabState(item.tabState)}
               >
-                <div className='flex items-center w-6 h-full'>{item.logo}</div>
-                <div className='ml-4 underline'>{item.name}</div>
+                <div
+                  className={`flex items-center w-6 h-0 bg-yellow transition-all group-hover:h-full`}
+                >
+                  {item.logo}
+                </div>
+                <div
+                  className={`ml-4 ${
+                    item.tabState === tabState
+                      ? 'line-through font-bold'
+                      : 'underline'
+                  }`}
+                >
+                  {item.name}
+                </div>
                 <div className='ml-auto'>
                   <Image src={ChevronRight} alt='Chevron Right' />
                 </div>

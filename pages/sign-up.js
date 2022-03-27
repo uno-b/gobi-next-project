@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useMutation } from '@apollo/client';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 import Input from '../components/Input';
 import { Button } from '../components/Button';
@@ -13,8 +14,11 @@ import BGHalf from '../assets/images/bg-half.png';
 import UserLogo from '../assets/logos/user.svg';
 import EmailLogo from '../assets/logos/email.svg';
 import PasswordLogo from '../assets/logos/password.svg';
+import Link from 'next/link';
 
 const SignUp = () => {
+  const router = useRouter();
+
   const [signUpFields, setSignUpFields] = useState({
     firstName: '',
     lastName: '',
@@ -34,6 +38,8 @@ const SignUp = () => {
     if (signUpData) {
       if (signUpData.customerCreate?.customerUserErrors?.length === 0) {
         toast.success('Success');
+
+        router.push('/sign-in');
       } else {
         toast.error(
           joinErrorMessagesArray(signUpData.customerCreate?.customerUserErrors)
@@ -111,7 +117,11 @@ const SignUp = () => {
           <h1 className='text-5xl font-bold tracking-widest'>SIGN UP</h1>
           <div className='mt-6 mb-12'>
             Already have an account?{' '}
-            <span className='font-bold underline'>Sign In</span>
+            <Link href='/sign-in' passHref>
+              <span className='font-bold underline cursor-pointer'>
+                Sign In
+              </span>
+            </Link>
           </div>
 
           <Input

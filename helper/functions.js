@@ -48,3 +48,7 @@ export const validatePassword = (password) => {
 export const formatTitle = (title) => {
   return title.length > 22 ? title.slice(0, 22) + '...' : title;
 };
+
+export const formatDesc = (desc) => {
+  return desc.length > 190 ? desc.slice(0, 190) + '...' : title;
+};

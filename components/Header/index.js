@@ -21,26 +21,32 @@ const Header = () => {
       <div>
         <ul className='flex flex-row w-[29rem] justify-between font-bold'>
           {MenuItems.map((item) => (
-            <li key={item.name}>
-              <Link className='font-bold' href={`/collections/${item.handle}`}>
-                {item.name}
+            <li key={item.name} className='cursor-pointer'>
+              <Link
+                className='font-bold'
+                href={`/collections/${item.handle}`}
+                passHref
+              >
+                <div className="inline-block relative before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:w-0 before:right-0 before:h-[2px] before:bg-black-1 before:transition-all hover:before:w-full">
+                  {item.name}
+                </div>
               </Link>
             </li>
           ))}
         </ul>
       </div>
       <ul className='flex flex-row w-32 justify-between'>
-        <li>
+        <li className='cursor-pointer'>
           <button>
             <Image src={SearchLogo} alt='Search' width={22} height={22} />
           </button>
         </li>
-        <li>
+        <li className='cursor-pointer'>
           <Link href='/cart' passHref>
             <Image src={CartLogo} alt='Shopping Cart' width={27} height={24} />
           </Link>
         </li>
-        <li>
+        <li className='cursor-pointer'>
           <Link href='/account' passHref>
             <Image src={UserLogo} alt='User' width={19} height={22} />
           </Link>

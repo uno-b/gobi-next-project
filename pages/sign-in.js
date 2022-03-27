@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 import { useMutation } from '@apollo/client';
+import { useRouter } from 'next/router';
 
 import Input from '../components/Input';
 import { Button } from '../components/Button';
@@ -15,8 +16,11 @@ import FacebookLogo from '../assets/logos/fb-black.svg';
 import GoogleLogo from '../assets/logos/google-black.svg';
 import InstagramLogo from '../assets/logos/insta-black.svg';
 import TwitterLogo from '../assets/logos/twitter-black.svg';
+import Link from 'next/link';
 
 const SignIn = () => {
+  const router = useRouter();
+
   const [signInFields, setSignInFields] = useState({
     email: '',
     password: '',
@@ -34,6 +38,8 @@ const SignIn = () => {
         signInData.customerAccessTokenCreate?.customerUserErrors?.length === 0
       ) {
         // If there are no errors
+        toast.success('Success');
+
         const token =
           signInData.customerAccessTokenCreate?.customerAccessToken
             ?.accessToken;
@@ -48,7 +54,7 @@ const SignIn = () => {
         }
 
         // Navigate to the account page after a successful sign-in.
-        navigate('/account');
+        router.push('/account');
       } else {
         toast.error(
           joinErrorMessagesArray(
@@ -100,7 +106,11 @@ const SignIn = () => {
           <h1 className='text-5xl font-bold tracking-widest'>SIGN IN</h1>
           <div className='mt-6 mb-12'>
             Don&apos;t have an account?{' '}
-            <span className='font-bold underline'>Sign Up</span>
+            <Link href='/sign-up' passHref>
+              <span className='font-bold underline cursor-pointer'>
+                Sign Up
+              </span>
+            </Link>
           </div>
 
           <Input
@@ -125,10 +135,18 @@ const SignIn = () => {
           <div className='mt-12'>
             <div className='mb-6'>Or Sign In with</div>
             <div className='flex w-44 justify-between items-center'>
-              <Image src={FacebookLogo} alt='Facebook Logo' />
-              <Image src={GoogleLogo} alt='Google Plus Logo' />
-              <Image src={InstagramLogo} alt='Instagram Logo' />
-              <Image src={TwitterLogo} alt='Twitter Logo' />
+              <div className='transition-all hover:-translate-y-1'>
+                <Image src={FacebookLogo} alt='Facebook Logo' />
+              </div>
+              <div className='transition-all hover:-translate-y-1'>
+                <Image src={GoogleLogo} alt='Google Plus Logo' />
+              </div>
+              <div className='transition-all hover:-translate-y-1'>
+                <Image src={InstagramLogo} alt='Instagram Logo' />
+              </div>
+              <div className='transition-all hover:-translate-y-1'>
+                <Image src={TwitterLogo} alt='Twitter Logo' />
+              </div>
             </div>
           </div>
         </div>
