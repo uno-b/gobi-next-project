@@ -75,10 +75,19 @@ const Product = ({ data }) => {
           objectFit='cover'
         />
         <div className='absolute bottom-6 left-1/2 -translate-x-1/2'>
-          <button className='p-4 border-[2px]'>
+          <button
+            onClick={() => imageIndex !== 0 && setImageIndex(imageIndex - 1)}
+            className='p-4 border-[2px]'
+          >
             <Image src={LeftArrow} alt='Left Arrow' />
           </button>
-          <button className='p-4 border-[2px] border-l-0'>
+          <button
+            onClick={() =>
+              imageIndex !== images.edges.length - 1 &&
+              setImageIndex(imageIndex + 1)
+            }
+            className='p-4 border-[2px] border-l-0'
+          >
             <Image src={RightArrow} alt='Right Arrow' />
           </button>
         </div>
