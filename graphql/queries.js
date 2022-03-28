@@ -84,3 +84,13 @@ export const getProductByHandle = gql`
     }
   }
 `;
+
+export const getCustomerData = gql`
+  query getCustomerData($customerAccessToken: String!) {
+    customer(customerAccessToken: $customerAccessToken) {
+      firstName
+      lastName
+      email
+    }
+  }
+`;

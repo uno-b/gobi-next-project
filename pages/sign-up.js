@@ -155,6 +155,7 @@ const SignUp = () => {
             onChange={(e) =>
               setSignUpFields({ ...signUpFields, password: e.target.value })
             }
+            password
           />
 
           <Button onClick={handleSignUp}>SIGN UP</Button>

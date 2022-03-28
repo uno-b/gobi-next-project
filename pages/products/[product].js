@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import toast from 'react-hot-toast';
 
 import { BackButton, Button } from '../../components/Button';
 import Ticket from '../../components/Ticket';
@@ -19,11 +20,49 @@ const Product = ({ data }) => {
   console.log('received data:', data);
 
   const [imageIndex, setImageIndex] = useState(0);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
 
   const { id, title, description, options, priceRange, images } =
     data.productByHandle;
 
   const decodedId = atob(id).replace('gid://shopify/Product/', '');
+
+  const handleAddToCart = () => {
+    // Check if the necessary data is given
+    if (selectedSize && selectedColor) {
+      const cartItems = JSON.parse(localStorage.getItem('cart'));
+
+      // Check if the cart is empty
+      if (!cartItems) {
+        const newItems = [];
+        newItems.push({
+          data: data.productByHandle,
+          selectedQuantity,
+          selectedSize,
+          selectedColor,
+        });
+
+        localStorage.setItem('cart', JSON.stringify(newItems));
+      } else {
+        cartItems.push({
+          data: data.productByHandle,
+          selectedQuantity,
+          selectedSize,
+          selectedColor,
+        });
+
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        console.log('pushed to cart items:', cartItems);
+      }
+      toast.success('Successfully added to the cart');
+    } else if (!selectedSize) {
+      toast.error('Please select a size.');
+    } else if (!selectedColor) {
+      toast.error('Please select a color.');
+    }
+  };
 
   return (
     <div className='flex max-w-[80%] mx-auto mt-36'>
@@ -46,13 +85,13 @@ const Product = ({ data }) => {
       </div>
 
       {/* Right side */}
-      <div className='w-[500px] ml-28'>
+      <div className='w-[600px] ml-28'>
         <BackButton>back</BackButton>
         <h1 className='text-xl font-bold my-6'>{title}</h1>
         <Ticket id={decodedId.slice(0, 4) + '...'} />
         <p className='my-8'>{formatDesc(description)}</p>
 
-        <div className='flex -translate-x-[205px] w-[1000px]'>
+        <div className='flex -translate-x-[225px] w-[1000px]'>
           {images.edges.map((e, i) => (
             <div
               key={i}
@@ -62,7 +101,7 @@ const Product = ({ data }) => {
               <Image
                 src={e.node.originalSrc}
                 alt={e.node.altText}
-                width={166}
+                width={197}
                 height={95}
                 objectFit='cover'
               />
@@ -71,17 +110,32 @@ const Product = ({ data }) => {
         </div>
 
         <div className='mt-8 flex justify-between'>
-          <Quantity />
-          <Size />
-          <Color />
+          <Quantity
+            quantity={selectedQuantity}
+            setQuantity={setSelectedQuantity}
+          />
+          <Size
+            data={options[0]}
+            selected={selectedSize}
+            setSelected={setSelectedSize}
+          />
+          <Color
+            data={['#808080', '#FF0000', '#000000', '#FFFF00']}
+            color={selectedColor}
+            setColor={setSelectedColor}
+          />
         </div>
 
         <div className='flex items-center my-8'>
           <span className='text-xl font-bold'>
             ₣{priceRange.maxVariantPrice.amount}
           </span>
-          <Button rightLogo={CartLogo} className='ml-[72px]'>
-            BUY
+          <Button
+            rightLogo={CartLogo}
+            onClick={handleAddToCart}
+            className='ml-[72px]'
+          >
+            ADD TO CART
           </Button>
         </div>
 
@@ -101,13 +155,6 @@ const Product = ({ data }) => {
 };
 
 export async function getServerSideProps(context) {
-  // TODO: 404 page if the collection is not found from the 'CollectionList' file
-  // if (!collectionList[context.params.collectionHandle]?.searchTitle) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
-
   const { data } = await client.query({
     query: getProductByHandle,
     variables: {

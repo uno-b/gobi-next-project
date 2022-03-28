@@ -11,7 +11,7 @@ import DateLogo from '../../../assets/logos/date.svg';
 import BinLogo from '../../../assets/logos/trash-bin.svg';
 import Mastercard from '../../../assets/images/mastercard.png';
 
-const Settings = () => {
+const Settings = ({ customerData, setCustomerData }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
@@ -31,6 +31,7 @@ const Settings = () => {
           alt='User Logo'
           important
           className='w-full'
+          value={customerData?.customer?.firstName}
         />
         <Input
           label='last name'
@@ -38,6 +39,7 @@ const Settings = () => {
           alt='User Logo'
           important
           className='w-full ml-4'
+          value={customerData?.customer?.lastName}
         />
       </div>
       <div className='flex w-full'>
@@ -47,6 +49,7 @@ const Settings = () => {
           alt='Email Logo'
           important
           className='w-full'
+          value={customerData?.customer?.email}
         />
         <Input
           label='date of birth'

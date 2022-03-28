@@ -14,6 +14,7 @@ const Input = ({
   setStartDate,
   value,
   onChange,
+  password,
 }) => {
   return (
     <div className={`mb-6 ${className}`}>
@@ -30,7 +31,7 @@ const Input = ({
           />
         ) : (
           <input
-            type='text'
+            type={password ? 'password' : 'text'}
             className='ml-4 w-full outline-none'
             value={value}
             onChange={onChange}

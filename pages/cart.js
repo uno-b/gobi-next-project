@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 import CartItem from '../components/CartItem';
@@ -9,16 +9,30 @@ import CheckoutLogo from '../assets/logos/checkout.svg';
 import CartLogo from '../assets/logos/shopping-cart.svg';
 
 const Cart = () => {
+  const [cartItems, setCartItems] = useState(null);
+
+  useState(() => {
+    const fetchedCartData = JSON.parse(
+      typeof window !== 'undefined' && window.localStorage.getItem('cart')
+    );
+
+    setCartItems(fetchedCartData);
+  }, [typeof window]);
+
   return (
-    <div className='max-w-[80%] mx-auto mt-24'>
+    <div className='max-w-[80%] mx-auto mt-24 mb-10'>
       {/* List of items */}
       <div>
-        {[...Array(1)].map((e, i) => (
-          <>
-            <CartItem />
-            <hr className='border border-gray my-8' />
-          </>
-        ))}
+        {cartItems ? (
+          cartItems.map((e, i) => (
+            <div key={i}>
+              <CartItem cartItem={e} />
+              <hr className='border border-gray my-8' />
+            </div>
+          ))
+        ) : (
+          <div>No items available.</div>
+        )}
       </div>
 
       {/* Order Summary */}
@@ -61,7 +75,8 @@ const Cart = () => {
         <Button
           leftLogo={CheckoutLogo}
           noArrow
-          className='bg-black-1 text-white'
+          bgColor='bg-black-1'
+          className='text-white'
         >
           CHECKOUT
         </Button>

@@ -128,6 +128,7 @@ const SignIn = () => {
             onChange={(e) =>
               setSignInFields({ ...signInFields, password: e.target.value })
             }
+            password
           />
 
           <Button onClick={handleSignIn}>SIGN IN</Button>

@@ -15,16 +15,19 @@ export const Button = ({
   className,
   ghost,
   onClick,
+  bgColor,
 }) => {
   return (
     <button
-      className={`flex justify-center items-center w-44 h-14 ${
-        ghost ? 'bg-transparent border-2 border-black-1' : 'bg-yellow'
-      } ${className}`}
+      className={`group flex justify-center items-center w-44 h-14 ${
+        bgColor ? bgColor : 'bg-yellow'
+      } ${ghost && 'bg-transparent border-2 border-black-1'} ${className}`}
       onClick={onClick}
     >
       {leftLogo && <Image src={leftLogo} alt='Left logo' />}
-      <div className='mr-8 font-bold'>{children}</div>
+      <div className="mr-8 font-bold inline-block relative before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:w-0 before:right-0 before:h-[2px] before:bg-black-1 before:transition-all group-hover:before:w-full">
+        {children}
+      </div>
       {!noArrow ? (
         <Image
           src={
