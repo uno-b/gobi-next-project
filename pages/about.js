@@ -7,7 +7,7 @@ import BGHalf from '../assets/images/about-us.png';
 
 const About = () => {
   return (
-    <div className='w-full h-full flex flex-col lg:flex-row justify-between'>
+    <div className='lg:absolute w-full h-full flex flex-col lg:flex-row justify-between'>
       <div className='relative w-full h-[500px] lg:h-screen lg:w-1/2 mb-8'>
         <Image
           src={BGHalf}

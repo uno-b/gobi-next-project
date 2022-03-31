@@ -11,7 +11,7 @@ import EmailLogo from '../assets/logos/email.svg';
 
 const Contact = () => {
   return (
-    <div className='w-full h-full flex flex-col-reverse lg:flex-row justify-between'>
+    <div className='lg:absolute w-full h-full flex flex-col-reverse lg:flex-row justify-between'>
       <div className='relative lg:w-1/2'>
         <div className='lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:w-[487px] my-8 mx-6'>
           <BackButton className='mb-6'>back</BackButton>

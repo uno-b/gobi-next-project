@@ -1,6 +1,9 @@
 module.exports = {
   content: ['./pages/**/*.{js, jsx}', './components/**/*.{js,jsx}'],
   theme: {
+    fontFamily: {
+      helvetica: ['Helvetica', 'sans-serif'],
+    },
     extend: {
       colors: {
         black: {

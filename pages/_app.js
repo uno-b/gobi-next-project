@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ApolloProvider } from '@apollo/client';
+import Head from 'next/head';
 import { Toaster } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
@@ -13,6 +14,12 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <Layout>
+      <Head>
+        {/* This ways to add css on global website use local asset folder withhtml link tag */}
+        <link href='../assets/font/Helvetica.ttf' rel='stylesheet' />
+        <link href='../assets/font/Helvetica-Bold.ttf' rel='stylesheet' />
+      </Head>
+
       <Toaster />
 
       <AppContext.Provider
