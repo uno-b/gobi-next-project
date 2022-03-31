@@ -11,7 +11,7 @@ const Size = ({ data, selected, setSelected }) => {
               key={i}
               className={`relative bg-white ${
                 e?.length > 5 ? 'w-fit px-2' : 'w-10'
-              }  h-10 ${e === selected && 'outline outline-2 z-50'}`}
+              }  h-10 ${e === selected && 'outline outline-2 z-10'}`}
               onClick={() => setSelected && setSelected(e)}
             >
               {e}
