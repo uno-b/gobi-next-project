@@ -50,5 +50,5 @@ export const formatTitle = (title) => {
 };
 
 export const formatDesc = (desc) => {
-  return desc.length > 190 ? desc.slice(0, 190) + '...' : title;
+  return desc.length > 190 ? desc.slice(0, 190) + '...' : desc;
 };

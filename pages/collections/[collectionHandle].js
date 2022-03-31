@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import client from '../../apollo-client';
 import Product from '../../components/Product';
@@ -12,12 +13,19 @@ import RightArrow from '../../assets/logos/right-arrow.svg';
 import FilterLogo from '../../assets/logos/sliders.svg';
 import ChevronRight from '../../assets/logos/chevron-right.svg';
 
-const Collection = (props) => {
-  console.log('data:', props.data);
+const Collection = ({ data, page }) => {
+  const router = useRouter();
 
-  const { title } = props.data.collections.edges[0].node;
+  console.log('data:', data);
 
-  const products = props.data.collections.edges[0].node.products.edges;
+  const { title, handle } = data.collections.edges[0].node;
+
+  const {
+    pageInfo: { hasNextPage, hasPrevPage },
+  } = data.collections.edges[0].node.products;
+  const products = data.collections.edges[0].node.products.edges;
+
+  console.log('products:', products);
 
   return (
     <div className='max-w-[80%] mx-auto mt-24'>
@@ -42,8 +50,8 @@ const Collection = (props) => {
         </button>
       </div>
       <div className='flex flex-col-reverse lg:flex-row'>
-        <Product data={products[0]} />
-        <Product data={products[1]} />
+        <Product data={products[0 + (page - 1) * 6]} />
+        <Product data={products[1 + (page - 1) * 6]} />
         <div className='lg:ml-28'>
           <BackButton>back</BackButton>
           <h1 className='text-5xl font-bold my-6 max-w-sm'>
@@ -55,29 +63,53 @@ const Collection = (props) => {
           </div>
 
           <div className='my-6'>
-            <button className='p-4 border-[2px]'>
+            <button
+              onClick={() =>
+                router.push({
+                  pathname: `${handle}`,
+                  query: { page: parseInt(page) > 1 ? parseInt(page) - 1 : 1 },
+                })
+              }
+              className='p-4 border-[2px]'
+            >
               <Image src={LeftArrow} alt='Left Arrow' />
             </button>
-            <button className='p-4 border-[2px] border-l-0'>
-              <Image src={RightArrow} alt='Right Arrow' />
-            </button>
+            {hasNextPage && (
+              <button
+                onClick={() =>
+                  router.push({
+                    pathname: `${handle}`,
+                    query: { page: parseInt(page) + 1 },
+                  })
+                }
+                className='p-4 border-[2px] border-l-0'
+              >
+                <Image src={RightArrow} alt='Right Arrow' />
+              </button>
+            )}
           </div>
         </div>
       </div>
 
       <div className='flex flex-col lg:flex-row mb-8'>
-        <Product data={products[2]} />
-        <Product data={products[3]} />
-        <Product data={products[4]} />
-        <Product data={products[5]} />
+        <Product data={products[2 + (page - 1) * 6]} />
+        <Product data={products[3 + (page - 1) * 6]} />
+        <Product data={products[4 + (page - 1) * 6]} />
+        <Product data={products[5 + (page - 1) * 6]} />
       </div>
     </div>
   );
 };
 
 export async function getServerSideProps(context) {
+  const { page } = context.query;
+
+  const handleItems = context.params.collectionHandle?.split('?');
+
+  console.log('handle items is:', handleItems);
+
   // TODO: 404 page if the collection is not found from the 'CollectionList' file
-  if (!collectionList[context.params.collectionHandle]?.searchTitle) {
+  if (!collectionList[handleItems[0]]?.searchTitle) {
     return {
       notFound: true,
     };
@@ -86,15 +118,15 @@ export async function getServerSideProps(context) {
   const { data } = await client.query({
     query: getCollection,
     variables: {
-      query:
-        'title:' + collectionList[context.params.collectionHandle]?.searchTitle,
-      firstProducts: 6,
+      query: 'title:' + collectionList[handleItems[0]]?.searchTitle,
+      firstProducts: page ? page * 6 : 6,
     },
   });
 
   return {
     props: {
       data: data,
+      page: page ? page : 1,
     },
   };
 }

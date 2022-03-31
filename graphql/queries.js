@@ -8,6 +8,10 @@ export const getCollection = gql`
           title
           handle
           products(first: $firstProducts) {
+            pageInfo {
+              hasNextPage
+              hasPreviousPage
+            }
             edges {
               node {
                 id
