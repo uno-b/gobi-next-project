@@ -65,7 +65,7 @@ const Account = () => {
   };
 
   return token ? (
-    <div className='flex w-[80%] mx-auto mt-40'>
+    <div className='flex flex-col lg:flex-row lg:w-[80%] mx-4 lg:mx-auto mt-40'>
       <div>
         <BackButton className='mb-6'>back</BackButton>
 
@@ -83,7 +83,7 @@ const Account = () => {
           {MenuItems.map((item) => (
             <li key={item.id}>
               <button
-                className='flex items-center w-96 h-20 group'
+                className='flex items-center w-full lg:w-96 h-20 group'
                 onClick={() => setTabState(item.tabState)}
               >
                 <div
@@ -109,7 +109,7 @@ const Account = () => {
           ))}
           <li>
             <button
-              className='flex items-center w-96 h-20 group'
+              className='flex items-center w-full lg:w-96 h-20 group'
               onClick={handleLogOut}
             >
               <div
@@ -128,7 +128,7 @@ const Account = () => {
           </li>
         </ul>
       </div>
-      <div className='w-full ml-32 mt-14'>
+      <div className='w-full lg:ml-32 mt-14'>
         {tabState === TAB_STATES.ORDERS && <Orders />}
         {tabState === TAB_STATES.FAVORITES && <Favorites />}
         {tabState === TAB_STATES.GIFT && <Gift />}

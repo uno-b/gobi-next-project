@@ -41,10 +41,10 @@ const Collection = (props) => {
           </div>
         </button>
       </div>
-      <div className='flex'>
+      <div className='flex flex-col-reverse lg:flex-row'>
         <Product data={products[0]} />
         <Product data={products[1]} />
-        <div className='ml-28'>
+        <div className='lg:ml-28'>
           <BackButton>back</BackButton>
           <h1 className='text-5xl font-bold my-6 max-w-sm'>
             {title.toUpperCase()}
@@ -54,7 +54,7 @@ const Collection = (props) => {
             deals for them.
           </div>
 
-          <div className='mt-6'>
+          <div className='my-6'>
             <button className='p-4 border-[2px]'>
               <Image src={LeftArrow} alt='Left Arrow' />
             </button>
@@ -65,7 +65,7 @@ const Collection = (props) => {
         </div>
       </div>
 
-      <div className='flex'>
+      <div className='flex flex-col lg:flex-row mb-8'>
         <Product data={products[2]} />
         <Product data={products[3]} />
         <Product data={products[4]} />

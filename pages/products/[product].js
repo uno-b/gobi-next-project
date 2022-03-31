@@ -63,16 +63,16 @@ const Product = ({ data }) => {
   };
 
   return (
-    <div className='flex max-w-[80%] mx-auto mt-36'>
+    <div className='flex flex-col lg:flex-row max-w-[80%] mx-auto my-36'>
       {/* Left side */}
-      <div className='relative w-[588px] h-[620px] bg-black'>
+      <div className='relative w-full lg:w-[588px] h-96 lg:h-[620px] bg-black'>
         <Image
           src={images.edges[imageIndex].node.originalSrc}
           alt={images.edges[imageIndex].node.altText}
           layout='fill'
           objectFit='cover'
         />
-        <div className='absolute bottom-6 left-1/2 -translate-x-1/2'>
+        <div className='hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2'>
           <button
             onClick={() => imageIndex !== 0 && setImageIndex(imageIndex - 1)}
             className='p-4 border-[2px]'
@@ -92,13 +92,13 @@ const Product = ({ data }) => {
       </div>
 
       {/* Right side */}
-      <div className='w-[600px] ml-28'>
-        <BackButton>back</BackButton>
+      <div className='lg:w-[600px] lg:ml-28'>
+        <BackButton className='mt-6'>back</BackButton>
         <h1 className='text-xl font-bold my-6'>{title}</h1>
         <Ticket id={decodedId.slice(0, 4) + '...'} />
         <p className='my-8'>{formatDesc(description)}</p>
 
-        <div className='flex -translate-x-[225px] w-[1000px]'>
+        <div className='hidden lg:flex -translate-x-[225px] w-[1000px]'>
           {images.edges.map((e, i) => (
             <div
               key={i}
@@ -116,7 +116,7 @@ const Product = ({ data }) => {
           ))}
         </div>
 
-        <div className='mt-8 flex justify-between'>
+        <div className='mt-8 flex flex-col lg:flex-row justify-between space-y-10 lg:space-y-0'>
           <Quantity
             quantity={selectedQuantity}
             setQuantity={setSelectedQuantity}

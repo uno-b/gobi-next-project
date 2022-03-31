@@ -11,9 +11,9 @@ import EmailLogo from '../assets/logos/email.svg';
 
 const Contact = () => {
   return (
-    <div className='w-full h-full flex flex-row justify-between'>
-      <div className='relative w-1/2'>
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[487px]'>
+    <div className='w-full h-full flex flex-col-reverse lg:flex-row justify-between'>
+      <div className='relative lg:w-1/2'>
+        <div className='lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:w-[487px] my-8 mx-6'>
           <BackButton className='mb-6'>back</BackButton>
           <h1 className='text-5xl font-bold tracking-widest'>CONTACT US</h1>
           <div className='mt-6 mb-12'>
@@ -61,7 +61,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className='relative w-1/2 h-screen'>
+      <div className='relative w-full lg:w-1/2 h-[500px] lg:h-screen'>
         <Image
           src={BGHalf}
           alt='Background'

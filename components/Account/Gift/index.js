@@ -7,13 +7,13 @@ import { Button } from '../../Button';
 
 const Gift = () => {
   return (
-    <div>
+    <div className='mb-8'>
       <div className='mb-12'>
         <h2 className='font-bold text-xl mb-2'>GIFT CARDS & VOUCHERS</h2>
         <div>Your amount is ready to spend at the checkout</div>
       </div>
 
-      <div className='border border-gray flex flex-col items-center py-8 px-20'>
+      <div className='border border-gray flex flex-col items-center py-8 px-4 lg:px-20'>
         <div className='mb-8'>
           <Image src={VoucherLogo} alt='Voucher Logo' />
         </div>

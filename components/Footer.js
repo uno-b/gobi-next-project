@@ -8,7 +8,7 @@ import Twitter from '../assets/logos/twitter.svg';
 
 const Footer = () => {
   return (
-    <div className='mx-auto mb-8 w-[402px] flex flex-col justify-center items-center mt-auto z-50'>
+    <div className='mx-auto mb-8 w-[300px] lg:w-[402px] flex flex-col justify-center items-center mt-auto z-50'>
       <div className='flex w-full justify-between'>
         <Image src={Line} width={50} height={2} alt='Line' />
         <button className='transition-all hover:-translate-y-1'>
@@ -22,9 +22,7 @@ const Footer = () => {
         </button>
         <Image src={Line} width={50} height={2} alt='Line' />
       </div>
-      <div className='mt-6 font-bold'>
-        UNUMANDAKH B. &copy; 2022. ALL RIGHTS RESERVED
-      </div>
+      <div className='mt-6 font-bold'>&copy; 2022. ALL RIGHTS RESERVED</div>
     </div>
   );
 };

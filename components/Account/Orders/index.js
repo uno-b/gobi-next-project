@@ -15,9 +15,9 @@ const Orders = () => {
       {/* ORDER ITEM */}
       {[...Array(3)].map((e, i) => (
         <div className='mb-8 p-6 bg-gray-light' key={i}>
-          <div className='w-full flex justify-between mb-4'>
-            <h3 className='font-bold text-lg'>It&apos;s Delivered!</h3>
-            <div>
+          <div className='w-full flex flex-col lg:flex-row justify-between mb-4'>
+            <h3 className='font-bold text-lg mb-4'>It&apos;s Delivered!</h3>
+            <div className='mb-4'>
               <h3 className='text-gray-dark font-bold'>ORDER NO:</h3>
               <div>12345678912</div>
             </div>
@@ -27,7 +27,7 @@ const Orders = () => {
             </div>
           </div>
 
-          <div className='flex justify-between'>
+          <div className='flex flex-col lg:flex-row justify-between'>
             <div className='flex'>
               {[...Array(3)].map((e, i) => {
                 return (

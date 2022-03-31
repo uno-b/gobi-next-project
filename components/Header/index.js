@@ -19,7 +19,7 @@ const Header = () => {
         isMenuOpen={isMenuOpen}
       />
       <div>
-        <ul className='flex flex-row w-[29rem] justify-between font-bold'>
+        <ul className='hidden lg:flex flex-row lg:w-[29rem] justify-between font-bold'>
           {MenuItems.map((item) => (
             <li key={item.name} className='cursor-pointer'>
               <Link

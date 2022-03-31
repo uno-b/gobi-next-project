@@ -30,7 +30,7 @@ const Help = () => {
         <div>Here are the popular FAQ down below</div>
       </div>
 
-      <div className='mb-8'>
+      <div className='mb-12 lg:mb-8'>
         {FAQ.map((item, i) => {
           return (
             <div key={i}>

@@ -7,8 +7,8 @@ import BGHalf from '../assets/images/about-us.png';
 
 const About = () => {
   return (
-    <div className='w-full h-full flex flex-row justify-between'>
-      <div className='relative w-1/2 h-screen'>
+    <div className='w-full h-full flex flex-col lg:flex-row justify-between'>
+      <div className='relative w-full h-[500px] lg:h-screen lg:w-1/2 mb-8'>
         <Image
           src={BGHalf}
           alt='Background'
@@ -17,8 +17,8 @@ const About = () => {
           objectFit='cover'
         />
       </div>
-      <div className='relative w-1/2'>
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[487px]'>
+      <div className='relative lg:w-1/2 mb-10'>
+        <div className='lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:w-[487px] mx-6'>
           <BackButton className='mb-6'>back</BackButton>
           <h1 className='text-5xl font-bold tracking-widest'>YOLO SHOP</h1>
 

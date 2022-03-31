@@ -18,7 +18,7 @@ const Homepage = () => {
           objectFit='cover'
         />
       </div>
-      <div className='absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/3'>
+      <div className='absolute top-[65%] lg:top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[350px] lg:w-[550px] text-center'>
         <div>
           Yolo is the leading destination for stylish clothes, everyday carry
           essentials & more

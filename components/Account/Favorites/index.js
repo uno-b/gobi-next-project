@@ -2,9 +2,6 @@ import React from 'react';
 
 import Product from '../../Product';
 
-import DemoIMG1 from '../../../assets/images/bayraa.jpg';
-import DemoIMG2 from '../../../assets/images/anuka.jpg';
-
 const Favorites = () => {
   return (
     <div>
@@ -13,7 +10,7 @@ const Favorites = () => {
         <div>Your saved items</div>
       </div>
 
-      <div className='flex'>
+      <div className='flex flex-col lg:flex-row mb-8'>
         {[...Array(3)].map((e, i) => {
           return (
             <div key={i}>

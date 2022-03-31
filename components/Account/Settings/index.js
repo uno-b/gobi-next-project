@@ -24,7 +24,7 @@ const Settings = ({ customerData, setCustomerData }) => {
         </div>
       </div>
 
-      <div className='flex w-full'>
+      <div className='flex flex-col lg:flex-row w-full'>
         <Input
           label='first name'
           icon={UserLogo}
@@ -38,11 +38,11 @@ const Settings = ({ customerData, setCustomerData }) => {
           icon={UserLogo}
           alt='User Logo'
           important
-          className='w-full ml-4'
+          className='w-full lg:ml-4'
           value={customerData?.customer?.lastName}
         />
       </div>
-      <div className='flex w-full'>
+      <div className='flex flex-col lg:flex-row w-full'>
         <Input
           label='your email'
           icon={EmailLogo}
@@ -59,11 +59,11 @@ const Settings = ({ customerData, setCustomerData }) => {
           important
           startDate={startDate}
           setStartDate={setStartDate}
-          className='w-full ml-4'
+          className='w-full lg:ml-4'
         />
       </div>
 
-      <div className='flex justify-between items-center mt-12'>
+      <div className='flex flex-col lg:flex-row justify-between items-center my-12'>
         <div className='flex items-center w-72'>
           <Image src={Mastercard} alt='Mastercard' width={42} height={42} />
           <div className='ml-6'>
@@ -75,7 +75,7 @@ const Settings = ({ customerData, setCustomerData }) => {
             <Image src={BinLogo} alt='Bin Logo' />
           </button>
         </div>
-        <Button ghost className='w-72'>
+        <Button ghost className='w-72 mt-8'>
           NEW PAYMENT METHOD
         </Button>
       </div>

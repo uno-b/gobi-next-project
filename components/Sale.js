@@ -34,7 +34,7 @@ const Sale = ({ data, color, large, bottom }) => {
           <Text title={title} price={`₣${priceRange.maxVariantPrice.amount}`} />
         )}
         <div
-          className={`relative bg-red-300 w-72 h-72 ${large && 'h-[588px]'}`}
+          className={`relative bg-red-300 w-72 h-72 ${large && 'lg:h-[588px]'}`}
         >
           <Image
             src={images.edges[0].node.src}

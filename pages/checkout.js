@@ -20,17 +20,17 @@ const Checkout = () => {
       <BackButton>back</BackButton>
       <h1 className='text-5xl font-bold my-6'>CHECKOUT</h1>
 
-      <div className='flex justify-between items-center'>
+      <div className='flex flex-col lg:flex-row justify-between items-center'>
         {/* Left side */}
-        <div className='w-1/2'>
-          <div className='flex'>
+        <div className='lg:w-1/2'>
+          <div className='flex flex-col lg:flex-row'>
             <Input icon={UserLogo} label='first name' important />
             <Input icon={UserLogo} label='last name' important />
           </div>
 
           <h2 className='font-bold mb-8'>payment info</h2>
 
-          <div className='flex'>
+          <div className='flex flex-col lg:flex-row'>
             <Input icon={UserLogo} label='first name' important />
             <Input icon={CardLogo} label='last name' important />
           </div>
@@ -41,29 +41,29 @@ const Checkout = () => {
         </div>
 
         {/* Right side */}
-        <div className='w-1/2'>
+        <div className='w-full lg:w-1/2'>
           <h2 className='font-bold mb-8'>billing address</h2>
 
-          <div className='flex'>
+          <div className='flex flex-col lg:flex-row'>
             <Input icon={LocationLogo} label='country' important />
             <Input icon={LocationLogo} label='city' important />
           </div>
-          <div className='flex'>
+          <div className='flex flex-col lg:flex-row'>
             <Input icon={LocationLogo} label='state' important />
             <Input icon={LocationLogo} label='address' important />
           </div>
-          <div className='flex'>
+          <div className='flex flex-col lg:flex-row'>
             <Input icon={FilesLogo} label='zip code' important />
             <Input icon={EmailLogo} label='contact e-mail' important />
           </div>
         </div>
       </div>
 
-      <div className='flex items-center '>
-        <p className='mr-72'>Save Billing info for later</p>
+      <div className='flex items-center my-12'>
+        <p className='mr-auto lg:mr-72'>Save Billing info for later</p>
         <ToggleBtn isOn={isToggleOn} setIsOn={setIsToggleOn} />
       </div>
-      <Button className='mt-12'>PAY NOW</Button>
+      <Button className='my-12'>PAY NOW</Button>
     </div>
   );
 };
