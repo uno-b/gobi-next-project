@@ -17,8 +17,6 @@ import TruckLogo from '../../assets/logos/truck.svg';
 import CartLogo from '../../assets/logos/shopping-cart.svg';
 
 const Product = ({ data }) => {
-  console.log('received data:', data);
-
   const [imageIndex, setImageIndex] = useState(0);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);

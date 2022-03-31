@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '../../Button';
 
-import DemoImg from '../../../assets/images/rectangle-demo.png';
+import DemoImg from '../../../assets/images/anuka.jpg';
 
 const Orders = () => {
   return (
@@ -31,7 +31,7 @@ const Orders = () => {
             <div className='flex'>
               {[...Array(3)].map((e, i) => {
                 return (
-                  <div className='mr-4' key={i}>
+                  <div className='w-28 h-28 mr-4' key={i}>
                     <Image src={DemoImg} alt='Demo' />
                   </div>
                 );

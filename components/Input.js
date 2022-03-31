@@ -22,7 +22,7 @@ const Input = ({
         {label} {important && <span className='text-red-400'>*</span>}
       </div>
       <div className='flex items-center'>
-        <Image src={icon} alt={alt} />
+        <Image src={icon} alt={alt} className='text-black-0' />
         {type === 'Date' ? (
           <DatePicker
             selected={startDate}
@@ -45,6 +45,8 @@ const Input = ({
 
 Input.propTypes = {
   type: PropTypes.oneOf(['Password', 'Date']),
+  icon: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default Input;

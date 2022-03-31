@@ -4,7 +4,8 @@ import Link from 'next/link';
 
 import { formatTitle } from '../helper/functions';
 
-import DemoIMG from '../assets/images/product-image.png';
+import DemoIMG from '../assets/images/bayraa.jpg';
+import DemoIMG2 from '../assets/images/anuka.jpg';
 import USDLogo from '../assets/logos/usd-circle.svg';
 import CartLogo from '../assets/logos/product-cart.svg';
 import BinLogo from '../assets/logos/trash-bin.svg';

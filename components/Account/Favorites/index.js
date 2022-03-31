@@ -2,6 +2,9 @@ import React from 'react';
 
 import Product from '../../Product';
 
+import DemoIMG1 from '../../../assets/images/bayraa.jpg';
+import DemoIMG2 from '../../../assets/images/anuka.jpg';
+
 const Favorites = () => {
   return (
     <div>
