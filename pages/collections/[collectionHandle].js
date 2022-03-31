@@ -106,8 +106,6 @@ export async function getServerSideProps(context) {
 
   const handleItems = context.params.collectionHandle?.split('?');
 
-  console.log('handle items is:', handleItems);
-
   // TODO: 404 page if the collection is not found from the 'CollectionList' file
   if (!collectionList[handleItems[0]]?.searchTitle) {
     return {
