@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 import toast from 'react-hot-toast';
 
 import Input from '../components/Input';
@@ -62,6 +63,10 @@ const Subscribe = () => {
 
   return (
     <div className='flex flex-col-reverse lg:flex-row lg:justify-between mb-10'>
+      <Head>
+        <title>{`Subscribe | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta name='description' content='Subscribe page for the customer.' />
+      </Head>
       <div className='lg:absolute lg:w-[487px] lg:ml-32 lg:top-1/2 lg:-translate-y-1/2 ml-6'>
         <BackButton noArrow className='mt-6'>
           back

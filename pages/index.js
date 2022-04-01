@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { Button } from '../components/Button';
@@ -10,6 +11,14 @@ const Homepage = () => {
 
   return (
     <div>
+      <Head>
+        <title>{`Homepage | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta
+          name='description'
+          content='Yolo is the leading destination for stylish clothes, everyday carry
+          essentials & more.'
+        />
+      </Head>
       <div className='w-full h-full'>
         <Image
           src={BG}

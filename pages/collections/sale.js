@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import client from '../../apollo-client';
 import Sale from '../../components/Sale';
@@ -19,70 +20,79 @@ const Sales = ({ data, page }) => {
   const handle = data.collections.edges[0].node.handle;
 
   return (
-    <div className='max-w-[80%] mx-auto mt-24'>
-      <div className='flex flex-col-reverse lg:flex-row'>
-        <div>
-          <Sale data={products[0 + (page - 1) * 6]} color='text-yellow-2' />
-          <Sale data={products[1 + (page - 1) * 6]} color='text-cyan' />
-        </div>
-        <Sale
-          data={products[2 + (page - 1) * 6]}
-          color='text-white'
-          large
-          bottom
+    <>
+      <Head>
+        <title>{`Sales | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta
+          name='description'
+          content='Here you can find the best deals offered by the Gobi team.'
         />
-        <div className=''>
-          <div className='lg:ml-28'>
-            <h1 className='text-5xl font-bold my-6 max-w-sm'>SALES TODAY</h1>
-            <div className='max-w-[485px]'>
-              Here you can find the best deals offered by the Gobi team.
-            </div>
+      </Head>
+      <div className='max-w-[80%] mx-auto mt-24'>
+        <div className='flex flex-col-reverse lg:flex-row'>
+          <div>
+            <Sale data={products[0 + (page - 1) * 6]} color='text-yellow-2' />
+            <Sale data={products[1 + (page - 1) * 6]} color='text-cyan' />
+          </div>
+          <Sale
+            data={products[2 + (page - 1) * 6]}
+            color='text-white'
+            large
+            bottom
+          />
+          <div className=''>
+            <div className='lg:ml-28'>
+              <h1 className='text-5xl font-bold my-6 max-w-sm'>SALES TODAY</h1>
+              <div className='max-w-[485px]'>
+                Here you can find the best deals offered by the Gobi team.
+              </div>
 
-            <div className='mt-6'>
-              <button
-                onClick={() =>
-                  router.push({
-                    pathname: `${handle}`,
-                    query: {
-                      page: parseInt(page) > 1 ? parseInt(page) - 1 : 1,
-                    },
-                  })
-                }
-                className='p-4 border-[2px]'
-              >
-                <Image src={LeftArrow} alt='Left Arrow' />
-              </button>
-              {hasNextPage && (
+              <div className='mt-6'>
                 <button
                   onClick={() =>
                     router.push({
                       pathname: `${handle}`,
-                      query: { page: parseInt(page) + 1 },
+                      query: {
+                        page: parseInt(page) > 1 ? parseInt(page) - 1 : 1,
+                      },
                     })
                   }
-                  className='p-4 border-[2px] border-l-0'
+                  className='p-4 border-[2px]'
                 >
-                  <Image src={RightArrow} alt='Right Arrow' />
+                  <Image src={LeftArrow} alt='Left Arrow' />
                 </button>
-              )}
+                {hasNextPage && (
+                  <button
+                    onClick={() =>
+                      router.push({
+                        pathname: `${handle}`,
+                        query: { page: parseInt(page) + 1 },
+                      })
+                    }
+                    className='p-4 border-[2px] border-l-0'
+                  >
+                    <Image src={RightArrow} alt='Right Arrow' />
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
 
-          <div className='flex flex-col lg:flex-row mt-20'>
-            <Sale
-              data={products[3 + (page - 1) * 6]}
-              color='text-yellow-2'
-              bottom
-            />
-            <Sale
-              data={products[4 + (page - 1) * 6]}
-              color='text-cyan'
-              bottom
-            />
+            <div className='flex flex-col lg:flex-row mt-20'>
+              <Sale
+                data={products[3 + (page - 1) * 6]}
+                color='text-yellow-2'
+                bottom
+              />
+              <Sale
+                data={products[4 + (page - 1) * 6]}
+                color='text-cyan'
+                bottom
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

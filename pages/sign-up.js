@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 import { useMutation } from '@apollo/client';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/router';
@@ -103,6 +104,10 @@ const SignUp = () => {
 
   return (
     <div className='flex flex-row justify-between'>
+      <Head>
+        <title>{`Sign-up | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta name='description' content='Sign-up page for the customer.' />
+      </Head>
       <div className='lg:absolute lg:w-1/2 h-screen hidden lg:block'>
         <Image
           src={BGHalf}

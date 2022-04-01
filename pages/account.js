@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Head from 'next/head';
 import { useLazyQuery } from '@apollo/client';
 
 import Orders from '../components/Account/Orders';
@@ -66,6 +67,10 @@ const Account = () => {
 
   return token ? (
     <div className='flex flex-col lg:flex-row lg:w-[80%] mx-4 lg:mx-auto mt-40'>
+      <Head>
+        <title>{`Account | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta name='description' content="User's personal account page." />
+      </Head>
       <div>
         <BackButton className='mb-6'>back</BackButton>
 

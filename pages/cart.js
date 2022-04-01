@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import CartItem from '../components/CartItem';
 import { Button } from '../components/Button';
@@ -24,6 +25,10 @@ const Cart = () => {
 
   return (
     <div className='max-w-[80%] mx-auto mt-24 mb-10'>
+      <Head>
+        <title>{`Cart | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta name='description' content='Here you can manage your cart.' />
+      </Head>
       {/* List of items */}
       <div>
         {cartItems ? (

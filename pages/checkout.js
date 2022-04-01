@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { BackButton, Button } from '../components/Button';
@@ -17,6 +18,10 @@ const Checkout = () => {
 
   return (
     <div className='w-[80%] mx-auto mt-40'>
+      <Head>
+        <title>{`Checkout | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta name='description' content='Here you can checkout.' />
+      </Head>
       <BackButton>back</BackButton>
       <h1 className='text-5xl font-bold my-6'>CHECKOUT</h1>
 

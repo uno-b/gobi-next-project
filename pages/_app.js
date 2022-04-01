@@ -16,9 +16,6 @@ function MyApp({ Component, pageProps, router }) {
     <Layout>
       <Head>
         <title>Gobi Swiss | Unumandakh Next Project</title>
-        {/* This ways to add css on global website use local asset folder withhtml link tag */}
-        <link href='../assets/font/Helvetica.ttf' rel='stylesheet' />
-        <link href='../assets/font/Helvetica-Bold.ttf' rel='stylesheet' />
       </Head>
 
       <Toaster />

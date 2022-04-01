@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Head from 'next/head';
 
 import { BackButton } from '../components/Button';
 
@@ -7,6 +8,13 @@ import BG from '../assets/images/404.png';
 const ErrorPage = () => {
   return (
     <div>
+      <Head>
+        <title>{`404 Not Found | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta
+          name='description'
+          content="The page you are looking for doesn't exist."
+        />
+      </Head>
       <div className='w-full h-full'>
         <Image
           src={BG}

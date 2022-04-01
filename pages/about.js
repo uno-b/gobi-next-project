@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 
 import { BackButton } from '../components/Button';
 
@@ -8,6 +9,15 @@ import BGHalf from '../assets/images/about-us.png';
 const About = () => {
   return (
     <div className='lg:absolute w-full h-full flex flex-col lg:flex-row justify-between'>
+      <Head>
+        <title>{`About | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta
+          name='description'
+          content='Shopping for clothes online, whether you buy them from a big box
+              store or a custom clothier, can get you great style at bargain
+              prices.'
+        />
+      </Head>
       <div className='relative w-full h-[500px] lg:h-screen lg:w-1/2 mb-8'>
         <Image
           src={BGHalf}

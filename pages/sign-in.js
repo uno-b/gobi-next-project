@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 import toast from 'react-hot-toast';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
@@ -83,6 +84,10 @@ const SignIn = () => {
 
   return (
     <div className='w-full h-full flex flex-row justify-between'>
+      <Head>
+        <title>{`Sign-in | ${process.env.NEXT_PUBLIC_SITE_NAME}`}</title>
+        <meta name='description' content='Sign-in page for the customer.' />
+      </Head>
       <div className='lg:absolute lg:w-1/2 h-screen hidden lg:block'>
         <Image
           src={BGHalf}
