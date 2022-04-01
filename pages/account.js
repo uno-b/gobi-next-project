@@ -75,7 +75,12 @@ const Account = () => {
           <Image src={DemoProPic} alt='Profile Picture' />
           <div className='font-bold ml-6'>
             <div>Hi,</div>
-            <div>{`${customerData?.customer?.firstName} ${customerData?.customer?.lastName}`}</div>
+            <div>{`${
+              customerData?.customer?.firstName &&
+              customerData.customer.firstName
+            } ${
+              customerData?.customer?.lastName && customerData.customer.lastName
+            }`}</div>
           </div>
         </div>
 

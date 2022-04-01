@@ -10,16 +10,14 @@ import CartLogo from '../../assets/logos/shopping-cart.svg';
 import UserLogo from '../../assets/logos/user.svg';
 
 const MenuItem = ({ handle, onClick, name }) => (
-  <li>
-    <Link href={handle} passHref>
-      <div
-        className="inline-block relative before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:w-0 before:right-0 before:h-[2px] before:bg-black-1 before:transition-all hover:before:w-full cursor-pointer"
-        onClick={onClick}
-      >
-        {name?.toUpperCase()}
-      </div>
-    </Link>
-  </li>
+  <Link href={handle} passHref>
+    <div
+      className="inline-block relative before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:w-0 before:right-0 before:h-[2px] before:bg-black-1 before:transition-all hover:before:w-full cursor-pointer"
+      onClick={onClick}
+    >
+      {name?.toUpperCase()}
+    </div>
+  </Link>
 );
 
 const Header = () => {
@@ -35,10 +33,10 @@ const Header = () => {
               : '-translate-y-full opacity-0'
           }`}
         >
-          <ul className='mt-20 w-full '>
+          <div className='mt-20 w-full '>
             <div className='flex lg:hidden flex-col justify-center items-center space-y-10'>
               {MenuItems.map((item, i) => (
-                <li key={item.name + i}>
+                <div key={item.name + i}>
                   <Link href={`/collections/${item.handle}`} passHref>
                     <div
                       className="inline-block relative before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:w-0 before:right-0 before:h-[2px] before:bg-black-1 before:transition-all hover:before:w-full cursor-pointer"
@@ -47,7 +45,7 @@ const Header = () => {
                       {item.name}
                     </div>
                   </Link>
-                </li>
+                </div>
               ))}
             </div>
             <div className='flex flex-col justify-center items-center space-y-10 mt-10'>
@@ -67,7 +65,7 @@ const Header = () => {
                 name='Contact'
               />
             </div>
-          </ul>
+          </div>
         </div>
         <MenuButton
           onClick={() => setIsMenuOpen(!isMenuOpen)}
