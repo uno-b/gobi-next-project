@@ -52,7 +52,6 @@ const Product = ({ data }) => {
         });
 
         localStorage.setItem('cart', JSON.stringify(cartItems));
-        console.log('pushed to cart items:', cartItems);
       }
       toast.success('Successfully added to the cart');
     } else if (!selectedSize) {

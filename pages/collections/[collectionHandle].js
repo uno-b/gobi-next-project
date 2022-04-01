@@ -16,16 +16,12 @@ import ChevronRight from '../../assets/logos/chevron-right.svg';
 const Collection = ({ data, page }) => {
   const router = useRouter();
 
-  console.log('data:', data);
-
   const { title, handle } = data.collections.edges[0].node;
 
   const {
     pageInfo: { hasNextPage, hasPrevPage },
   } = data.collections.edges[0].node.products;
   const products = data.collections.edges[0].node.products.edges;
-
-  console.log('products:', products);
 
   return (
     <div className='max-w-[80%] mx-auto mt-24'>

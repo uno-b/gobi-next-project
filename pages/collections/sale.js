@@ -12,8 +12,6 @@ import RightArrow from '../../assets/logos/right-arrow.svg';
 const Sales = ({ data, page }) => {
   const router = useRouter();
 
-  console.log('data:', data);
-
   const {
     pageInfo: { hasNextPage, hasPrevPage },
   } = data.collections.edges[0].node.products;

@@ -79,15 +79,6 @@ const SignIn = () => {
         },
       },
     });
-
-    console.log('Data:', {
-      variables: {
-        input: {
-          email: signInFields.email,
-          password: signInFields.password,
-        },
-      },
-    });
   };
 
   return (

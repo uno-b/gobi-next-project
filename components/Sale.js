@@ -17,8 +17,6 @@ const Text = ({ title, price }) => (
 );
 
 const Sale = ({ data, color, large, bottom }) => {
-  console.log('sale data:', data);
-
   const { id, handle, title, images, priceRange, compareAtPriceRange } =
     data.node;
 

@@ -10,10 +10,6 @@ import BinLogo from '../assets/logos/trash-bin.svg';
 const CartItem = ({ cartItem }) => {
   const { title, images, priceRange } = cartItem.data;
 
-  useEffect(() => {
-    console.log('data:', cartItem);
-  }, [cartItem]);
-
   return (
     <div className='flex flex-col lg:flex-row justify-between lg:items-center space-y-10'>
       <div className='flex flex-col lg:flex-row'>
